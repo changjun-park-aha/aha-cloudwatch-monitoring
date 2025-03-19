@@ -12,7 +12,7 @@ import { initializeDatabase } from "../database/db";
 initializeDatabase();
 
 // Configuration
-const REPORT_DIR = path.join(__dirname, "../../../data/reports");
+const REPORT_DIR = path.join(__dirname, "../../data/reports");
 fs.ensureDirSync(REPORT_DIR);
 
 async function generateReport(clusterName: string, reportDate = new Date()) {
