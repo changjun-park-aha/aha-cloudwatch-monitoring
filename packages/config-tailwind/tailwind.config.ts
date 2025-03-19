@@ -10,7 +10,7 @@ const config = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
-    "../../packages/ui/src/components/**/*.{ts,tsx}", //추가
+    "../../packages/ui/src/**/*.{ts,tsx}", //추가
   ],
   prefix: "",
   theme: {
