@@ -11,9 +11,15 @@ import { format } from "date-fns";
 import { saveService } from "../database/services-repository";
 import { saveTask, saveContainer } from "../database/tasks-repository";
 
-const ecsClient = new ECSClient({
-  region: process.env.AWS_REGION || "us-east-1",
-});
+const ecsClient = new ECSClient([
+  {
+    region: process.env.AWS_REGION || "us-east-1",
+    credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    },
+  },
+]);
 
 export async function getEcsClusters(saveToDb = true) {
   try {

@@ -5,9 +5,15 @@ import {
 import { subHours, format } from "date-fns";
 import { saveMetric } from "../database/metrics-repository";
 
-const cloudWatchClient = new CloudWatchClient({
-  region: process.env.AWS_REGION || "us-east-1",
-});
+const cloudWatchClient = new CloudWatchClient([
+  {
+    region: process.env.AWS_REGION || "us-east-1",
+    credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    },
+  },
+]);
 
 export async function getClusterMetrics(
   clusterName: string,
